@@ -8,6 +8,8 @@
   --muted: #40404080;
   --bg: #F3F2F0;
   --ink: #000000;
+   --font-poppins: "Poppins", system-ui, sans-serif;
+  --font-fredoka: "Fredoka", system-ui, sans-serif;
 }
 
 /* =========================
@@ -29,4 +31,22 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-poppins), sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-fredoka {
+  font-family: var(--font-fredoka);
 }
