@@ -1,6 +1,10 @@
-import React from "react";
+"use client";
+
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Poppins, Fredoka } from "next/font/google";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,6 +19,9 @@ const fredoka = Fredoka({
 });
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const hideLogout = pathname === "/flashcard/levels";
+
   return (
     <div
       className={`
@@ -23,9 +30,15 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         ${fredoka.variable}
         font-poppins
       `}
+      style={{
+        backgroundImage: "url('/bg.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed", // 🔒 BACKGROUND LOCKED
+      }}
     >
-      {/* Navbar */}
-      <header className="w-full bg-primary h-16 flex items-center px-6 shadow-sm">
+      {/* Sticky Navbar */}
+      <header className="h-16 w-full bg-primary flex items-center justify-between px-6 shadow-sm sticky top-0 z-50">
         <Image
           src="/logoWhite.svg"
           alt="KonnichiWow"
@@ -33,27 +46,17 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           height={32}
           priority
         />
+
+        {!hideLogout && (
+          <button className="flex items-center gap-2 text-white text-md font-bold hover:opacity-80">
+            <FontAwesomeIcon icon={faRightFromBracket} />
+            Logout
+          </button>
+        )}
       </header>
 
-      {/* Background + Content */}
-      <main
-        className="
-          min-h-[calc(100vh-4rem)]
-          flex
-          items-center
-          justify-center
-          px-6
-          py-10
-          w-full
-        "
-        style={{
-          backgroundImage: "url('/bg.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        {children}
-      </main>
+      {/* Page content scrolls naturally */}
+      <main className="w-full flex justify-center px-6 py-10">{children}</main>
     </div>
   );
 };

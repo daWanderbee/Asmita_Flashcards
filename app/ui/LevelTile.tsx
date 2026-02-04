@@ -1,16 +1,18 @@
 "use client";
 
 import clsx from "clsx";
+import Link from "next/link";
 
 interface LevelTileProps {
   level: string;
+  linkTo: string;
   onClick?: () => void;
 }
 
-export const LevelTile = ({ level, onClick }: LevelTileProps) => {
+export const LevelTile = ({ level, onClick, linkTo }: LevelTileProps) => {
   return (
-    <button
-      onClick={onClick}
+    <Link
+      href={linkTo}
       className={clsx(
         "font-fredoka w-full h-[16svh] lg:h-[30svh] rounded-xl bg-primary hover:bg-[#d81f54] text-white text-3xl",
         "flex items-center justify-center text-5xl lg:text-8xl ",
@@ -24,6 +26,6 @@ export const LevelTile = ({ level, onClick }: LevelTileProps) => {
       }}
     >
       {level}
-    </button>
+    </Link>
   );
 };

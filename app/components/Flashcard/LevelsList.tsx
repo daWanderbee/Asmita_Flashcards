@@ -16,6 +16,7 @@ const LevelsList = () => {
       <div className="flex gap-4 justify-between">
         {levels.map((level) => (
           <LevelTile
+           linkTo={`/flashcard/deck-menu`}
             key={level}
             level={level}
             onClick={() =>
