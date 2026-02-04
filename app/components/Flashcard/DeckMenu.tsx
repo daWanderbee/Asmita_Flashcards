@@ -23,7 +23,7 @@ const DeckMenu = () => {
         font-fredoka
         px-10
         py-8
-        md:min-w-4xl
+        md:min-w-3xl
         lg:min-w-5xl
       "
       >

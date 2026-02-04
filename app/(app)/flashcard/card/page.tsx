@@ -11,70 +11,9 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
-
+import {flashcardData} from "@/app/data/flashCards";
 // Sample flashcards
-const flashcardsData = [
-  {
-    id: 1,
-    front: "こんにちは",
-    back: "Hello / Good afternoon",
-    starred: false,
-  },
-  {
-    id: 2,
-    front: "ありがとう",
-    back: "Thank you",
-    starred: true,
-  },
-  {
-    id: 3,
-    front: "おはよう",
-    back: "Good morning",
-    starred: false,
-  },
-  {
-    id: 4,
-    front: "こんばんは",
-    back: "Good evening",
-    starred: false,
-  },
-  {
-    id: 5,
-    front: "水（みず）",
-    back: "Water",
-    starred: true,
-  },
-  {
-    id: 6,
-    front: "食べ物（たべもの）",
-    back: "Food",
-    starred: false,
-  },
-  {
-    id: 7,
-    front: "学校（がっこう）",
-    back: "School",
-    starred: false,
-  },
-  {
-    id: 8,
-    front: "先生（せんせい）",
-    back: "Teacher",
-    starred: true,
-  },
-  {
-    id: 9,
-    front: "学生（がくせい）",
-    back: "Student",
-    starred: false,
-  },
-  {
-    id: 10,
-    front: "行く（いく）",
-    back: "To go",
-    starred: false,
-  },
-];
+const flashcardsData  = flashcardData;
 
 
 const FlashcardCardPage = () => {
